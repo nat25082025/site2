@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Главная</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        body {
+            font-family: Tahoma, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+</style>
+<style>
+        /* Header */
+        .header {
+            ackground: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-image: url('https://4.downloader.disk.yandex.ru/preview/3522825bedef5fa73278fd534405c1bc534ace673c6d0ba91b026b26f412e14e/inf/Qxhu7QL1nTRx8fhHSFwPUpFvEtSd5mQmMEaW0HIUplRc_BgTaBfh9FeI7HG07eyV1Dc42vmr83ZS8O_qLa3XBA%3D%3D?uid=785233413&filename=studiinyi-fon-koncepcia-abstraktnyi-pustoi-gradient-sveta-fioletovyi-studiinyi-fon-komnaty-dla-produkta.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=785233413&tknv=v3&size=1905x953');
+            box-shadow: 0 4px 6px rgba(202,119,200,0.5);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #B853B7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+.logo:hover {
+color: white;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #B853B7;
+            font-weight: 100;
+            font-size: 1.2rem;
+            transition: color 0.4s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #B853B7;
+            color: white;
+            font-size: 1.0rem;
+border: 2px solid #B853B7;
+        }
+
+        .btn-primary:hover {
+            background: #3B0041;
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #B853B7;
+            color: #B853B7;
+            font-size: 1.0rem;
+        }
+
+        .btn-outline:hover {
+            background: #3B0041;
+            color: white;
+        }
+</style>
+<style>
+        /* Hero Section */
+        .hero {
+            background: rgba(36, 9, 53, 0.9)
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url('https://avatars.mds.yandex.net/i?id=3f035e7bebc7c3826b6a5d8b3484b69a_l-5192525-images-thumbs&n=13');
+        }
+        .hero::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            object-fit: fill;
+background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            padding: 2rem 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Stats */
+        .stats {
+            background-image: url('https://4.downloader.disk.yandex.ru/preview/3522825bedef5fa73278fd534405c1bc534ace673c6d0ba91b026b26f412e14e/inf/Qxhu7QL1nTRx8fhHSFwPUpFvEtSd5mQmMEaW0HIUplRc_BgTaBfh9FeI7HG07eyV1Dc42vmr83ZS8O_qLa3XBA%3D%3D?uid=785233413&filename=studiinyi-fon-koncepcia-abstraktnyi-pustoi-gradient-sveta-fioletovyi-studiinyi-fon-komnaty-dla-produkta.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=785233413&tknv=v3&size=1905x953');
+            box-shadow: 0 4px 6px rgba(202,119,200,0.5);
+            padding: 2rem 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(202,119,200,0.5);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        /* Features */
+        .features {
+            padding: 4rem 2rem;
+            background-image: url('https://avatars.mds.yandex.net/i?id=3f035e7bebc7c3826b6a5d8b3484b69a_l-5192525-images-thumbs&n=13');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+       .features1 {
+            padding: 2rem 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .features h2{
+           color: white;
+           font-size: 3rem;
+background: rgba(0, 0, 0, 0.4);
+        }
+     .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            object-fit: fill;
+background: rgba(0, 0, 0, 0.8);
+        }
+       .features h4{
+           color: white;
+           font-size: 2rem;
+background: rgba(0, 0, 0, 0.4);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card {
+            background: #f8f4ff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon1 {
+            font-size: 3rem;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            left: 100px;
+            background-image: url('https://cs.pikabu.ru/post_img/2013/07/07/5/1373175382_13466441.gif');
+        }
+
+.feature-icon2 {
+            font-size: 3rem;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            left: 100px;
+            background-image: url('https://media.tenor.com/b5XHV7J_8P4AAAAS/cat-staring.gif');
+        }
+
+.feature-icon3 {
+            font-size: 3rem;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            left: 100px;
+            background-image: url('https://steamuserimages-a.akamaihd.net/ugc/785234490379541326/A887B1F29F29345DC464D46D60ACFB34BE8B8B5D/?imw=512&amp;&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=false');
+        }
+
+        /* Job Categories */
+        .categories {
+            padding: 4rem 2rem;
+            background-image: url('https://4.downloader.disk.yandex.ru/preview/3522825bedef5fa73278fd534405c1bc534ace673c6d0ba91b026b26f412e14e/inf/Qxhu7QL1nTRx8fhHSFwPUpFvEtSd5mQmMEaW0HIUplRc_BgTaBfh9FeI7HG07eyV1Dc42vmr83ZS8O_qLa3XBA%3D%3D?uid=785233413&filename=studiinyi-fon-koncepcia-abstraktnyi-pustoi-gradient-sveta-fioletovyi-studiinyi-fon-komnaty-dla-produkta.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=785233413&tknv=v3&size=1905x953');
+            box-shadow: 0 4px 6px rgba(202,119,200,0.5);
+        }
+.categories h2 {
+color: white;
+font-size: 3rem;
+}
+
+        }
+.categories h3 {
+color: white;
+font-size: 2rem;
+}
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: #fac8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background: #B853B7;
+            color: white;
+        }
+
+        .category-card:hover h3 {
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials {
+           padding: 2rem 2rem;
+           background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            
+                background-color: #3B0041;
+                background-image: url('https://img.restoclub.ru/uploads/article/a/4/4/4/a4445782fddd41038c528b79904e28ef_w1200_h630--c.jpeg');
+        }
+.testimonials h2 {
+color: white;
+background: linear-gradient(135deg, #2b003d 1%, #07000a 100%);
+font-size: 3rem;
+}
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-image: url('https://1.downloader.disk.yandex.ru/preview/ff58aa6ee970b78761cbfbef715c8550f1d4c2fe8f3dfe36195bcc7617c1b6e1/inf/k2RdGcPLtXXL151Y-K8qWf3WIY4UaCQmZFT-qFBlGYBfrMuJ2a3VrTgTNQJBy286w4D69g-Y2fuOPxDkZGlNAQ%3D%3D?uid=785233413&filename=vlaznye-list-a-rastenia-monstera-deliciosa-v-sadu.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=785233413&tknv=v3&size=1905x953');
+            box-shadow: 0 4px 6px rgba(202,119,200,0.5);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #320b35 8%, #0c030d 92%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+ .empty-div {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: 80px;
+                background-color: #3B0041;
+                background-image: url('https://img.restoclub.ru/uploads/article/a/4/4/4/a4445782fddd41038c528b79904e28ef_w1200_h630--c.jpeg');
+            }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="https://images.steamusercontent.com/ugc/16467511137534053331/3ADD292F034496AD6184AA647F2550774937A2F2/?imw=512&amp;imh=341&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" class="logo">
+                <span style="font-size: 2rem;"></span>
+                Я ИДУ ПИТЬ ПИВО<p>&#127866</p>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Я НЕ МОГУ...</a></li>
+                <li><a href="#">НЕ ЛЮБЛЮ ПИВО</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ПРИГЛАШЕНИЕ НА РАСПИТИЕ СПИРТНЫХ НАПИТКОВ</h1>
+<p>В НОЧЬ С 13 ПО 14 СЕНТЯБРЯ<p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                    ИДУ
+                </button>
+                <button class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem; background: rgba(255,255,255,0.1);">
+                    ИДУ, ТОЛЬКО СПРАВА
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">ГО</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">ПИТЬ</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">ПИВО</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">???</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+<div class=features-content">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">НЕ ХОЧЕШЬ??? ТЫ УВЕРЕНА???</h2>
+<h4 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">ОНО ЖЕ ТАКОЕ:</h4>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon1"></div>
+                <h3>ВКУСНОЕ</h3>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon2"></div>
+                <h3>ПЕННОЕ</h3>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon3"></div>
+                <h3>ПЬЯНЯЩЕЕ</h3>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Job Categories -->
+    <section class="categories">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 3rem;">ПРОСТО ПОДУМАЙ О ТОМ, СКОЛЬКО В МИРЕ НЕВЫПИТОГО ПИВА ЖДЕТ ТЕБЯ</h2>
+<div class="empty-div">
+</div>
+<br>
+<h3 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: white">А ЕЩЕ ПИВО СОДЕРЖИТ МНОГО ПОЛЕЗНЫХ ВЕЩЕСТВ:</h3>
+        <div class="categories-grid">
+            <div class="category-card">
+                <h3>Витамины группы B</h3>
+            </div>
+            <div class="category-card">
+                <h3>Полифенолы</h3>
+            </div>
+            <div class="category-card">
+                <h3>Кремний</h3>
+            </div>
+            <div class="category-card">
+                <h3>Растворимая клетчатка</h3>
+            </div>
+        </div>
+<section class="features1">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">А ЕЩЕ НАУЧНЫЕ ИССЛЕДОВАНИЯ ПОДТВЕРЖДАЮТ СЛЕДУЮЩИЕ ПОЛЕЗНЫЕ СВОЙСТВА ПИВА:</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <p>Женщины, которые выпивают один бокал пива в день, реже страдают от когнитивных проблем, вызванных старением.</p>
+            </div>
+            <div class="feature-card">
+                <p>У людей, которые немного пьют пиво, наблюдается медленное снижение уровня холестерина.</p>
+            </div>
+            <div class="feature-card">
+                <p>Употребление пива в небольших количествах увеличивает плотность костей.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+<div class="empty-div">
+</div>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">ТАК ЧТО ПОШЛИ ПИТЬ ПИВО И НЕ ВЫЁБЫВАЙСЯ</h2>
+    </section>
+<div class="empty-div">
+</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2025 by Натаха. Все права защищены, потому что я так сказала.</p>
+        </div>
+    </footer>
+</body>
+</html>
